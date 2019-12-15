@@ -2,6 +2,7 @@ package com.lcd.tejiansuo.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,12 +21,16 @@ import java.util.Map;
  */
 @Controller
 public class FileUpload {
+
+  @Value("${file.photoUploadFolder}")
+  private String photoUploadFolder;
+
   @PostMapping(value = "/fileUpload")
   @ResponseBody
   public JSONObject fileUpload(@RequestParam(value = "files") MultipartFile[] files, HttpServletRequest request) throws IOException {
     String reportNum = request.getParameter("reportNum");
-    String rootPath = ClassUtils.getDefaultClassLoader().getResource("").getPath();
-    String currPath = rootPath + File.separator + "static/image" + File.separator + reportNum;
+//    String currPath = "C:" + File.separator + "photoUpload"+File.separator + reportNum;
+    String currPath = photoUploadFolder + reportNum;
 
     JSONObject res = new JSONObject();
     JSONObject resUrl = new JSONObject();
