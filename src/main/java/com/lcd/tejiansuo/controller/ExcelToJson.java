@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/excel")
+@RequestMapping(value = "/excel", method = RequestMethod.GET)
 public class ExcelToJson {
   @Autowired
   private CheckPointService checkPointService;
@@ -28,22 +28,22 @@ public class ExcelToJson {
   @Autowired
   private SegmentService segmentService;
 
-  @RequestMapping("/checkpoint")
+  @RequestMapping(value = "/checkpoint", method = RequestMethod.GET)
   public List<CheckPointData> checkpoint() throws IOException {
     return checkPointService.findAll();
   }
 
-  @RequestMapping("/report")
+  @RequestMapping(value = "/report", method = RequestMethod.GET)
   public List<ReportData> report() throws IOException {
     return reportService.findAll();
   }
 
-  @RequestMapping("/pipeline")
+  @RequestMapping(value = "/pipeline", method = RequestMethod.GET)
   public List<PipelineData> pipeline() throws IOException {
     return pipelineService.findAll();
   }
 
-  @RequestMapping("/segment")
+  @RequestMapping(value = "/segment", method = RequestMethod.GET)
   public List<SegmentData> segment() throws IOException {
     return segmentService.findAll();
   }
