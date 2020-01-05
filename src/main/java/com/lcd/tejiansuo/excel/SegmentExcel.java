@@ -24,6 +24,8 @@ public class SegmentExcel {
   private String endB;
   /*管线编号*/
   private String pipeNum;
+  /*压力级制*/
+  private String pressLevel;
   /*平面长度(m)*/
   private String length;
 }

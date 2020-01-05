@@ -23,11 +23,11 @@ public class SegmentData {
     this.endL = excelData.getEndL();
     this.endB = excelData.getEndB();
     this.pipeNum = excelData.getPipeNum();
+    this.pressLevel = excelData.getPressLevel();
     this.length = excelData.getLength();
   }
 
   @Id
-  @Column(name="id")
   @GeneratedValue(strategy= GenerationType.IDENTITY)
   private Long id;
 
@@ -49,6 +49,9 @@ public class SegmentData {
   /*管线编号*/
   @Column
   private String pipeNum;
+  /*压力级制*/
+  @Column
+  private String pressLevel;
   /*平面长度(m)*/
   @Column
   private String length;
